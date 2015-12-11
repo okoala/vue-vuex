@@ -49,7 +49,9 @@ config.set('dir_dist', '.dist');
 
 config.set('vendor_dependencies', [
   'vue',
-  'vue-router'
+  'vuex',
+  'vue-router',
+  'vue-resource'
 ]);
 
 // ------------------------------------
