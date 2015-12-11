@@ -1,20 +1,14 @@
 <template>
 <div>
   <router-view></router-view>
-  <div class="navigator">
-
-  </div>
+  <navigator></navigator>
 </div>
 </template>
 
 <script>
-export default {
+import Navigator from './Navigator.vue'
 
+export default {
+  components: { Navigator }
 }
 </script>
-
-<style lang="less">
-.navigator {
-
-}
-</style>

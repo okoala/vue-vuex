@@ -1,4 +1,4 @@
-require('babel/register')
+require('babel-core/register')
 
 var meta = require('../package.json'),
     express = require('express'),
@@ -9,7 +9,6 @@ var meta = require('../package.json'),
     bodyParser = require('body-parser'),
     lusca = require('lusca'),
     path = require('path'),
-    excelExport = require('./excel'),
     app = module.exports = express(),
     middleware = ['csrf', 'router', 'proxy', 'static', 'error'];
 

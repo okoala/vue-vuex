@@ -5,9 +5,12 @@ import * as actions from './actions'
 import mutations from './mutations'
 import middlewares from './middlewares'
 
-export const STORAGE_KEY = 'vuex'
+const strict = process.env.NODE_ENV !== 'production'
 
+export const STORAGE_KEY = 'vuex'
 export default new Vuex.Store({
+  strict,
+
   state,
   actions,
   mutations,
