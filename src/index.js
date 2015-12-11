@@ -6,6 +6,8 @@ import App from './components/App.vue'
 import { configRouter } from './route'
 import store from './store'
 
+import './styles/css/global.scss'
+
 Vue.config.debug = true
 
 // install router
