@@ -1,6 +1,6 @@
-# new-admin
+# vue vuex
 
-新项目的管理后台
+vue vuex starter
 
 
 
