@@ -1,0 +1,22 @@
+{
+	"apps": [{
+    "name": "vue-vuex",
+    "script": "./server/index.js",
+    "log_date_format": "YYYY-MM-DD",
+    "exec_mode": "cluster_mode",
+    "instances": "max",
+    "merge_logs" : true,
+    "max_memory_restart" : "1024M",
+    "args": ["--env_config=test"],
+    "env_test": {
+      "NODE_ENV_CONFIG": "test",
+      "COMMON_ENV_VAR": "true",
+      "COMMON_VARIABLE": "true",
+      "NODE_ENV": "test"
+    }
+  }],
+	"env": "test",
+	"port": 4006,
+	"api_target": "http:///",
+	"view_cache": "memory"
+}

@@ -1,0 +1,6 @@
+{
+  "env": "development",
+  "port": 4006,
+  "api_target": "http:///",
+  "view_cache": false
+}

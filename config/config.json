@@ -1,0 +1,31 @@
+{
+  "deploy": {
+    "production": {
+      "user": "",
+      "host": "",
+      "ref" : "origin/master",
+      "repo": "https://github.com/okoala/vue-vuex.git",
+      "key": "/home/okoala/.ssh/id_rsa",
+      "path": "",
+      "dest": "",
+      "post-deploy": "export NODE_ENV=production && npm install --verbose && npm run compile && npm run start:prod",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "test": {
+      "user": "",
+      "host": "",
+      "ref" : "origin/master",
+      "repo": "https://github.com/okoala/vue-vuex.git",
+      "key": "/home/okoala/.ssh/id_rsa",
+      "path": "",
+      "dest": "",
+      "post-deploy": "export NODE_ENV=test && npm install --verbose && npm run compile && npm run start:test",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    }
+  },
+  "dest": "./.dist"
+}
