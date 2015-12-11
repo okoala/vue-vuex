@@ -1,0 +1,1 @@
+export const RECEIVE_SLIDER = 'RECEIVE_SLIDER'

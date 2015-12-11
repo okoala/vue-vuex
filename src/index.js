@@ -1,14 +1,16 @@
 import 'babel-polyfill'
 import Vue from 'vue'
+import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './components/App.vue'
 import { configRouter } from './route'
-import store from './store'
 
 import './styles/css/global.scss'
 
 Vue.config.debug = true
+
+Vue.use(Vuex)
 
 // install router
 Vue.use(VueRouter)
