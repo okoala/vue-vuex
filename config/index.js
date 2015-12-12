@@ -5,7 +5,6 @@ import path from 'path'
 import meta from '../package.json'
 import { argv } from 'yargs'
 
-
 const config = new Map()
 const env = process.env.NODE_ENV
 

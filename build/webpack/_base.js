@@ -49,9 +49,8 @@ const webpackConfig = {
       },
       {
         test: /\.js$/,
-        // vue-resource 在进行babel编译的时候会出错，所以要先屏蔽.
-        exclude: /resource/i,
-        loader: 'babel?optional[]=runtime&stage=2'
+        loader: 'babel',
+        exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-loader/
       },
       {
         test: /\.json$/,
@@ -87,22 +86,6 @@ const webpackConfig = {
       { test: /\.eot(\?.*)?$/,      loader: "file-loader?prefix=fonts/&name=[path][name].[ext]" },
       { test: /\.svg(\?.*)?$/,      loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml" }
     ]
-  },
-  vue: {
-    loaders: {
-      // apply babel transform to all javascript
-      // inside *.vue files.
-      js: 'babel?optional[]=runtime&stage=2',
-      css: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'autoprefixer-loader'
-      ),
-      less: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'autoprefixer-loader!' + 'less?sourceMap'
-      ),
-      sass: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'autoprefixer-loader!' + 'sass?sourceMap'
-      )
-    }
   },
   eslint : {
     configFile : paths.project('.eslintrc'),

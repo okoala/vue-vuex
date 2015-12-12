@@ -5,14 +5,13 @@ var meta = require('../package.json'),
     swig = require('swig'),
     compress = require('compression'),
     session = require('express-session'),
-    favicon = require('serve-favicon'),
     bodyParser = require('body-parser'),
     lusca = require('lusca'),
     path = require('path'),
     app = module.exports = express(),
     middleware = ['csrf', 'router', 'proxy', 'static', 'error'];
 
-var config = require('../config');
+var config = require('../config').default;
 var paths = config.get('utils_paths');
 var content = '';
 var globals = config.get('globals');
@@ -65,7 +64,7 @@ app.use(session({
 }));
 
 // 打印配置信息~
-app.use(favicon(paths.dist('public/favicon.ico')))
+// app.use(favicon(paths.dist('public/favicon.ico')))
 
 // 关闭lusca的csrf，使用自定义的
 app.use(lusca({
