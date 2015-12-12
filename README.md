@@ -14,4 +14,8 @@ vue vuex starter
 - [vue-resource](https://github.com/vuejs/vue-resource)
 - [lib.flexible](https://github.com/amfe/lib-flexible)
 
+#####相关资料
+
+- [使用Flexible实现手淘H5页面的终端适配](https://github.com/amfe/article/issues/17)
+
 ...
