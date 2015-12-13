@@ -8,7 +8,7 @@
     "copy": "gulp --gulpfile build/gulp/index.js",
     "compile": "export NODE_ENV=production && npm run copy && webpack --progress --colors",
     "test": "webpack --progress --colors --watch --display-chunks --display-error-details",
-    "dev": "npm run copy && webpack --progress --colors --watch --display-chunks --display-error-details & npm run nodemon",
+    "dev": "npm run copy && node build/webpack/devServer.js & npm run nodemon",
     "nodemon": "nodemon --harmony --watch server server/index.js",
     "env": "source .",
     "start:test": "pm2 startOrReload ./config/test.json --env test",
@@ -80,6 +80,6 @@
     "vue-html-loader": "^1.0.0",
     "vue-loader": "^7.2.0",
     "webpack": "^1.12.8",
-    "webpack-dev-server": "^1.12.1"
+    "webpack-dev-server": "^1.14.0"
   }
 }

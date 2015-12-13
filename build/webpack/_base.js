@@ -11,8 +11,6 @@ const paths  = config.get('utils_paths')
 const globals = config.get('globals')
 
 const webpackConfig = {
-  name: 'client',
-  target: 'web',
   entry: {
     app: [
       paths.src('./index.js')
@@ -50,7 +48,7 @@ const webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-loader/
+        exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-loader|vue-router/
       },
       {
         test: /\.json$/,

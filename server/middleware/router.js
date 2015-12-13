@@ -2,19 +2,36 @@
 
 var express = require('express'),
     app = require('../index'),
-    router = express.Router();
+    router = express.Router()
+
+var http = require('http')
+var url = require('url')
 
 router.get('*', function (req, res, next) {
   if (!(req.url.indexOf('/public') === 0) &&
       !(req.url.indexOf('/api') === 0)) {
-    res.render(router.options.index, { content: app.get('content')});
-    return;
+    var index = router.options.index
+    if (index.indexOf('http') === 0) {
+      var options = url.parse(index)
+      options.method = req.method
+      var _proxyReq = http.request(options, function(_proxyRes) {
+        _proxyRes.pipe(res)
+      })
+      if (!req.readable) {
+        _proxyReq.end()
+      } else {
+        req.pipe(_proxyReq)
+      }
+    } else {
+      res.render(router.options.index)
+    }
+    return
   }
 
-  next();
-});
+  next()
+})
 
 module.exports = function (options) {
-    router.options = options || {};
-    return router;
-};
+    router.options = options || {}
+    return router
+}
