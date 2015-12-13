@@ -33,7 +33,7 @@ var server = new WebpackDevServer(compiler, {
   // },
 
   // webpack-dev-middleware options
-  quiet: true,
+  quiet: false,
   noInfo: false,
   lazy: false,
   inline: true,
