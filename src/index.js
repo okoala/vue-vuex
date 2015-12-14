@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import App from './components/App.vue'
+import App from './views/app.vue'
 import { configRouter } from './route'
 
 import './styles/css/global.scss'

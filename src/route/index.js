@@ -2,11 +2,15 @@
 export function configRouter (router) {
   router.map({
     '/': {
-      component: require('../components/Home.vue')
-
+      component: require('../views/home.vue'),
+      name: 'home'
+    },
+    '/demo': {
+      component: require('../views/components.vue'),
+      name: 'components'
     },
     '*': {
-      component: require('../components/NotFound.vue')
+      component: require('../views/not-found.vue')
     }
   })
 
