@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import App from './components/App.vue'
+import App from './views/App.vue'
 import { configRouter } from './route'
 
 import './styles/css/global.scss'
@@ -18,6 +18,8 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 
 Vue.http.options.emulateJSON = true
+
+Vue.directive('tap', require('./util/directives/tap.js'))
 
 // create router
 const router = new VueRouter({
