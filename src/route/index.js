@@ -5,7 +5,7 @@ export function configRouter (router) {
       component: require('../views/home.vue'),
       name: 'home'
     },
-    '/demo': {
+    '/components': {
       component: require('../views/components.vue'),
       name: 'components'
     },
