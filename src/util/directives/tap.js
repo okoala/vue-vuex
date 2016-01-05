@@ -1,7 +1,5 @@
-'use strict';
-
-import Vue from 'vue';
-import { dom } from 'util'
+import Vue from 'vue'
+import { dom } from '../dom'
 
 const _ = Vue.util
 const input_error = 8
@@ -32,23 +30,15 @@ export default {
   acceptStatement: true,
   priority: 700,
 
-  bind() {},
+  bind () {},
 
-  update(handler) {
+  update (handler) {
     let start = {x: 0, y: 0},
       end = {x: 0, y: 0}
 
-    if (typeof handler !== 'function') {
-      _.warn(
-        'Directive "v-on:' + this.expression + '" ' +
-        'expects a function value.'
-      )
-      return
-    }
-
     this.reset()
 
-    this.handler = function(e) {
+    this.handler = (e) => {
       e.targetVM = this.vm
       this.vm.$event = e
 
@@ -56,17 +46,17 @@ export default {
       if (this.vm) this.vm.$event = null
 
       return res
-    }.bind(this)
+    }
 
     this.hoverTimer = null
 
-    this.clearHover = function() {
+    this.clearHover = () => {
       this.el && this.el.classList.remove('hover')
       clearTimeout(this.hoverTimer)
       clearTimeout(this.removHoverTimer)
-    }.bind(this);
+    }
 
-    this.startHandler = function(e) {
+    this.startHandler = (e) => {
       if (this.el) {
         this.hoverTimer = setTimeout(() => {
           this.el && this.el.classList.add('hover')
@@ -76,41 +66,42 @@ export default {
         }, 80)
       }
 
-      if (this.arg === 'start') {
-        this.handler(e)
-      } else if (this.arg === 'tap') {
-        start = getInputPoint(e)
-      }
-    }.bind(this)
+      start = getInputPoint(e)
+      // if (this.arg === 'start') {
+      //   this.handler(e)
+      // } else if (this.arg === 'tap') {
+      //   start = getInputPoint(e)
+      // }
+    }
 
-    this.moveHandler = function(e) {
+    this.moveHandler = (e) => {
       clearTimeout(this.hoverTimer)
       this.clearHover()
 
-      if (this.arg === 'move') {
-        this.handler(e)
-      }
-    }.bind(this)
+      // if (this.arg === 'move') {
+      //   this.handler(e)
+      // }
+    }
 
-    this.endHandler = function(e) {
-      let fn = function() {
+    this.endHandler = (e) => {
+      let fn = () => {
         this.clearHover();
 
-        if (this.arg === 'end') {
-          this.handler(e);
-        } else if (this.arg === 'tap') {
-          end = getInputPoint(e);
+        // if (this.arg === 'end') {
+        //   this.handler(e);
+        // } else if (this.arg === 'tap') {
+        end = getInputPoint(e);
 
-          if (Math.abs(start.x - end.x) <= input_error &&
-            Math.abs(start.y - end.y) <= input_error) {
-            let el = document.elementFromPoint(end.x, end.y);
+        if (Math.abs(start.x - end.x) <= input_error &&
+          Math.abs(start.y - end.y) <= input_error) {
+          let el = document.elementFromPoint(end.x, end.y);
 
-            if (dom(el).matchNode(this.el)) {
-              this.handler(e);
-            }
+          if (dom(el).matchNode(this.el)) {
+            this.handler(e);
           }
         }
-      }.bind(this)
+        // }
+      }
 
       if (this.el) {
         this.endTimer = setTimeout(() => {
@@ -120,28 +111,27 @@ export default {
       } else {
         fn()
       }
-    }.bind(this)
-
-    if (this.arg === 'start' || this.arg === 'tap') {
+    }
+    // if (this.arg === 'start' || this.arg === 'tap') {
       dom(this.el).on(ontouch.start, this.startHandler)
-    }
+    // }
 
-    if (this.arg === 'move' || this.arg === 'tap') {
+    // if (this.arg === 'move' || this.arg === 'tap') {
       dom(this.el).on(ontouch.move, this.moveHandler)
-    }
+    // }
 
-    if (this.arg === 'end' || this.arg === 'tap') {
+    // if (this.arg === 'end' || this.arg === 'tap') {
       dom(this.el).on(ontouch.end, this.endHandler)
-    }
+    // }
   },
 
-  reset() {
+  reset () {
     if (this.startHandler) dom(this.el).off(ontouch.start, this.startHandler)
     if (this.moveHandler) dom(this.el).off(ontouch.move, this.moveHandler)
     if (this.endHandler) dom(this.el).off(ontouch.end, this.endHandler)
   },
 
-  unbind() {
+  unbind () {
     this.reset()
   }
 }

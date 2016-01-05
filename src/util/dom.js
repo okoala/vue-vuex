@@ -321,6 +321,6 @@ class Dom {
   }
 }
 
-export default dom = function(el) {
+export const dom = function(el) {
   return el instanceof Dom ? el : new Dom(el)
 }
