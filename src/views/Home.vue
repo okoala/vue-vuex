@@ -6,21 +6,29 @@
   <div>
 
   </div>
-  <carousel></carousel>
+  <slider class="banner" :items="banner"></slider>
 </div>
 </template>
 
 <script>
-import Carousel from '../components/Carousel.vue'
+import Slider from '../components/Slider.vue'
 
 export default {
   data () {
     return {
-      show: 'Hot Replace is Cool!!!'
+      show: 'Hot Replace is Cool!!!',
+      banner: [
+        {
+          imageUrl: 'http://res.ikaibei.com/uploadtest/img/kb/adv/62588603-e783-451b-9325-f03deff2fc27.png'
+        },
+        {
+          imageUrl: 'http://res.ikaibei.com/uploadtest/img/kb/adv/62588603-e783-451b-9325-f03deff2fc27.png'
+        }
+      ]
     }
   },
 
-  components: { Carousel }
+  components: { Slider }
 }
 </script>
 
