@@ -109,3 +109,16 @@
     border-radius: .6rem;
     background: $skin-a;
 }
+
+// 根据dpr定义字体的大小
+@mixin font-dpr($font-size){
+    font-size: $font-size;
+
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3.6;
+    }
+}

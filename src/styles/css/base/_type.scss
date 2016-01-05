@@ -68,3 +68,15 @@ h5 {
 }
 
 img { pointer-events: none; -webkit-touch-callout:none; -webkit-user-select:none;}
+
+.fn {
+  @include font-dpr(12px);
+}
+
+.fm {
+  @include font-dpr(14px);
+}
+
+.fb {
+  @include font-dpr(16px);
+}
