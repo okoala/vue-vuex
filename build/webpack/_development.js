@@ -2,7 +2,7 @@ import webpack       from 'webpack'
 import webpackConfig from './_base'
 import config        from '../../config'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import BrowserSyncPlugin from 'browser-sync-webpack-plugin'
+// import BrowserSyncPlugin from 'browser-sync-webpack-plugin'
 
 webpackConfig.devtool = 'source-map'
 webpackConfig.eslint.emitWarning = true

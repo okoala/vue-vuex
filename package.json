@@ -6,9 +6,10 @@
   "scripts": {
     "clean": "rm -rf .dist",
     "copy": "gulp --gulpfile build/gulp/index.js",
+    "mkdir": "gulp --gulpfile build/gulp/index.js mkdir",
     "compile": "export NODE_ENV=production && npm run copy && webpack --progress --colors",
     "test": "webpack --progress --colors --watch --display-chunks --display-error-details",
-    "dev": "npm run copy && node build/webpack/devServer.js & npm run nodemon",
+    "dev": "npm run mkdir && npm run copy && node build/webpack/devServer.js & npm run nodemon",
     "nodemon": "nodemon --harmony --watch server server/index.js",
     "env": "source .",
     "start:test": "pm2 startOrReload ./config/test.json --env test",
