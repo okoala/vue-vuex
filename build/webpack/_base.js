@@ -85,6 +85,12 @@ const webpackConfig = {
       { test: /\.svg(\?.*)?$/,      loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml" }
     ]
   },
+  vue: {
+    loaders: {
+      css: ExtractTextPlugin.extract("css"),
+      sass: ExtractTextPlugin.extract("css!sass")
+    }
+  },
   eslint : {
     configFile : paths.project('.eslintrc'),
     failOnError : globals.__PROD__,
