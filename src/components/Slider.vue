@@ -103,7 +103,7 @@ export default {
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 5.013333rem;
+  height: 3.125rem;
 }
 .ui-slider-content {
   border-radius: .15rem;
