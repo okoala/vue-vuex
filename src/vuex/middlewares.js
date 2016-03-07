@@ -1,5 +1,5 @@
-import { STORAGE_KEY } from './index'
-import { createLogger } from 'vuex'
+import { STORAGE_KEY } from '../constants'
+import createLogger from 'vuex/logger'
 
 const localStorageMiddleware = {
   onMutation (mutation, state) {

@@ -82,7 +82,6 @@
     "swig-webpack-plugin": "^0.5.1",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.3.2",
-    "vue-html-loader": "^1.2.0",
     "vue-loader": "^8.2.0",
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.12.14",

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import store from '../store'
 
 // Javascript
 Vue.use(VueResource)
