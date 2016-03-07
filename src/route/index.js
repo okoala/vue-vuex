@@ -3,13 +3,11 @@ import { setDocTitle } from '../util'
 export function configRouter (router) {
   router.map({
     '/': {
-      component: {
-        template: require('../views/Home.vue').default
-      },
+      component: require('../views/Home.vue'),
       title: '首页'
     },
     '*': {
-      component: require('../views/NotFound.vue').default
+      component: require('../views/NotFound.vue')
     }
   })
 
