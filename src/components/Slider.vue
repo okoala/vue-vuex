@@ -68,10 +68,6 @@ export default {
   },
 
   ready(){
-    // console.log(this.items)
-  },
-
-  compiled(){
     if(this.items && this.items.length > 0){
       setTimeout(() => {
         new Scroll(this.$els.slider, {
@@ -83,11 +79,7 @@ export default {
         });
       },10)
     }
-  },
-
-  methods: {
-
-  },
+  }
 }
 </script>
 <style lang='sass'>

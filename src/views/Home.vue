@@ -1,7 +1,7 @@
 <template>
 <div class="p-home">
   <slider class="banner" :items="banner"></slider>
-  <section class="todoapp">
+  <section class="todoapp" style="margin-top: 150px;">
     <!-- header -->
     <header class="header">
       <h1>todos</h1>
@@ -52,6 +52,12 @@ import Todo from '../components/Todo.vue'
 
 import {addTodo, toggleAll, clearCompleted} from '../vuex/actions'
 
+const filters = {
+  all: todos => todos,
+  active: todos => todos.filter(todo => !todo.done),
+  completed: todos => todos.filter(todo => todo.done)
+}
+
 export default {
   data () {
     return {
@@ -90,17 +96,13 @@ export default {
 
   vuex: {
     getters: {
-      todos: state => state.todos
+      todos: state => state.todo.todos
     },
     actions: {
       addTodo,
       toggleAll,
       clearCompleted
     }
-  },
-
-  beforeCompile () {
-    console.log('compiled')
   },
 
   computed: {
