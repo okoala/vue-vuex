@@ -14,7 +14,7 @@ vue vuex starter
 ---
 
 ##### 截图
-!()[https://github.com/okoala/30DaysofReactNative/blob/master/A6940957-7FDE-4AC1-9312-CB204D6321CE.png]
+![](https://github.com/okoala/30DaysofReactNative/blob/master/A6940957-7FDE-4AC1-9312-CB204D6321CE.png)
 
 ##### 技术栈
 
