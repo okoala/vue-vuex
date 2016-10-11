@@ -1,6 +1,6 @@
 {
   "name": "vue-vuex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Vue Vuex Demo",
   "main": "src/index.js",
   "scripts": {
@@ -9,7 +9,9 @@
     "mkdir": "gulp --gulpfile build/gulp/index.js mkdir",
     "compile": "export NODE_ENV=production && npm run copy && webpack --progress --colors",
     "test": "webpack --progress --colors --watch --display-chunks --display-error-details",
-    "dev": "npm run mkdir && npm run copy && node build/webpack/devServer.js & npm run nodemon",
+    "dev": "npm-run-all --parallel dev:webpack dev:server ",
+    "dev:webpack": "npm run mkdir && npm run copy && node build/webpack/devServer.js",
+    "dev:server": "npm run nodemon",
     "nodemon": "nodemon --harmony --watch server server/index.js",
     "env": "source .",
     "start:test": "pm2 startOrReload ./config/test.json --env test",
@@ -81,6 +83,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "node-sass": "^3.4.2",
+    "npm-run-all": "^3.1.0",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "swig-webpack-plugin": "^0.5.1",
